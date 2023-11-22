@@ -132,9 +132,9 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
 }
 
 sf::Vector2f ComplexPlane::mapPixelToCoords(sf::Vector2i mousePixel) {
-    float x = ((mousePixel.x - 0) / static_cast<float>(m_pixelWidth - 0)) * m_plane_size.x +
+    float x = ((mousePixel.x) / static_cast<float>(m_pixelWidth)) * m_plane_size.x +
               (m_plane_center.x - m_plane_size.x / 2.0);
-    float y = ((mousePixel.y - m_pixelHeight) / static_cast<float>(0 - m_pixelHeight)) * m_plane_size.y +
+    float y = ((mousePixel.y) / static_cast<float>(m_pixelHeight)) * m_plane_size.y +
               (m_plane_center.y - m_plane_size.y / 2.0);
     return {x, y};
 }
