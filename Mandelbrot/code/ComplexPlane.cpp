@@ -73,17 +73,16 @@ void ComplexPlane::loadText(sf::Text& text) {
 }
 
 size_t ComplexPlane::countIterations(sf::Vector2f coord) {
-    sf::Vector2f z = coord;
-    size_t iterations = 0;
+    complex<double> z = 0;
+    complex<double> c(coord.x, coord.y);
+    int iterations = 0;
 
-    while (z.x * z.x + z.y * z.y < 4.0 && iterations < MAX_ITER) {
-        sf::Vector2f newZ;
-        newZ.x = z.x * z.x - z.y * z.y + coord.x;
-        newZ.y = 2.0 * z.x * z.y + coord.y;
-        z = newZ;
+    // Iteration loop to check if the point escapes the set boundary; from https://en.wikipedia.org/wiki/Mandelbrot_set
+    while (abs(z) < 2.0 && iterations < MAX_ITER) 
+    {
+        z = z*z + c;
         iterations++;
     }
-
     return iterations;
 }
 
