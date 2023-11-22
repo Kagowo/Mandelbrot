@@ -33,8 +33,8 @@ public:
     void loadText(sf::Text& text);
 
 private:
-    int countIterations(sf::Vector2f coord);
-    void iterationsToRGB(int count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b);
+    size_t countIterations(sf::Vector2f coord);
+    void iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b);
     sf::Vector2f mapPixelToCoords(sf::Vector2i mousePixel);
 
     int m_pixelWidth;
