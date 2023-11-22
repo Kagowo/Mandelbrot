@@ -71,9 +71,9 @@ void ComplexPlane::loadText(sf::Text& text) {
     text.setString(mandelInfo.str());
 }
 
-size_t ComplexPlane::countIterations(sf::Vector2f coord) {
+int ComplexPlane::countIterations(sf::Vector2f coord) {
     sf::Vector2f z = coord;
-    size_t iterations = 0;
+    int iterations = 0;
 
     while (z.x * z.x + z.y * z.y < 4.0 && iterations < MAX_ITER) {
         sf::Vector2f newZ;
@@ -86,7 +86,7 @@ size_t ComplexPlane::countIterations(sf::Vector2f coord) {
     return iterations;
 }
 
-void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b) {
+void ComplexPlane::iterationsToRGB(int count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b) {
  if (count == MAX_ITER) 
     {
         r = g = b = 0;
